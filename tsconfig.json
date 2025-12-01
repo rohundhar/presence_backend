@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    
+    // THE MAGIC FLAGS
+    "esModuleInterop": true,            // Allows "import express from 'express'"
+    "allowSyntheticDefaultImports": true, // Often required alongside esModuleInterop
+    
+    // Required for typescript-rest
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}
