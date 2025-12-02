@@ -23,22 +23,22 @@ export const seed_data = async (targetUserId: string) => {
 
   // 2. Create/Update a Team
   
-  const team = await Team.findOneAndUpdate(
-    { entryCode: TARGET_TEAM_CODE },
-    { 
-      // Only set these if the team is being created for the first time
-      $setOnInsert: { 
-        name: "Simulator Squad", 
-        createdBy: targetUserId 
-      },
-      // Atomically add the user to the list if not already there
-      $addToSet: { members: targetUserId } 
-    },
-    { upsert: true, new: true, setDefaultsOnInsert: true }
-  );
-  // Link team to user
-  await User.updateOne({ userId: targetUserId }, { $addToSet: { teams: team._id } });
-  console.log(`✅ Team setup: ${team.name}`);
+//   const team = await Team.findOneAndUpdate(
+//     { entryCode: TARGET_TEAM_CODE },
+//     { 
+//       // Only set these if the team is being created for the first time
+//       $setOnInsert: { 
+//         name: "Simulator Squad", 
+//         createdBy: targetUserId 
+//       },
+//       // Atomically add the user to the list if not already there
+//       $addToSet: { members: targetUserId } 
+//     },
+//     { upsert: true, new: true, setDefaultsOnInsert: true }
+//   );
+//   // Link team to user
+//   await User.updateOne({ userId: targetUserId }, { $addToSet: { teams: team._id } });
+//   console.log(`✅ Team setup: ${team.name}`);
 
   // 3. Create Recommendations (The Rules)
   // We use a dummy base64 string for the token since the backend doesn't decode it anyway.
