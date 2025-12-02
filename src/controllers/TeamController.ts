@@ -19,6 +19,7 @@ export class TeamController {
   @POST
   // No decorator needed for 'body'. It is inferred automatically.
   async createTeam(body: CreateTeamRequest) {
+    console.log("create team called with body:", body);
     return await TeamService.createTeam(body.userId, body.name);
   }
 
@@ -31,6 +32,7 @@ export class TeamController {
   @Path('/dashboard/:userId')
   @GET
   async getDashboard(@PathParam('userId') userId: string) {
+    console.log('get dashboard called for userId:', userId);
     return await TeamService.getTeamDashboard(userId);
   }
 }

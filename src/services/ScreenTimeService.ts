@@ -21,6 +21,7 @@ export class ScreenTimeService {
 
   // Get Personal Dashboard (Rules + Server's view of usage)
   static async getPersonalDashboard(userId: string) {
+    console.log("Fetching personal dashboard for userId:", userId);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 

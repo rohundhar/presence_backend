@@ -92,6 +92,7 @@ export class TeamService {
       return {
         teamId: team._id,
         teamName: team.name,
+        entryCode: team.entryCode,
         members: memberProgress
       };
     }));
